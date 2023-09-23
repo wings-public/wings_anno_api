@@ -11,8 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "async": "^3.1.1",
-    "bcrypt": "^3.0.8",
-    "bson-ext": "^2.0.3",
+    "bcrypt": "^5.1.0",
+    "bson-ext": "^2.0.6",
     "child_process": "^1.0.2",
     "colors": "^1.4.0",
     "commander": "^4.1.1",
@@ -32,7 +32,7 @@
     "jsonwebtoken": "^8.5.1",
     "maskdata": "^1.1.0",
     "n": "^6.5.1",
-    "node-pre-gyp": "^0.14.0",
+    "@mapbox/node-pre-gyp": "^1.0.10",
     "winston-daily-rotate-file": "^4.4.2"
   }
 }

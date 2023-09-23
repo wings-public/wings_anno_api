@@ -1,0 +1,23 @@
+{
+    "generic" : { "MaxEntScan" : {
+                               "plugin" : "plugin MaxEntScan,/opt/vep/.vep/plugin_data_source/fordownload"
+                              },
+                "Encode" : {
+                               "plugin" : "regulatory 1",
+                               "cell_type" : "cell_type H9_1,HUVEC,HUVEC-prol_(CB),HeLa-S3,MSC,MSC_(VB),bipolar_neuron,brain_1,cardiac_muscle,dermal_fibroblast,heart,iPS-15b,iPS-20b,iPS_DF_19.11,iPS_DF_6.9,left_ventricle,neuron,neurosphere_(C),neurosphere_(GE),right_atrium,right_ventricle,aorta,astrocyte,osteoblast"
+                },
+                "RNACentral" : {
+                    "custom" : {
+                        "GRCh37" : "custom /opt/vep/.vep/plugin_data_source/GRCh37/homo_sapiens.GRCh37_proc.bed.gz,RNACentral,bed,overlap,0",
+                        "GRCh38" : "custom /opt/vep/.vep/plugin_data_source/GRCh38/homo_sapiens.GRCh38_proc.bed.gz,RNACentral,bed,overlap,0"
+                    }
+                },
+                "default" : ["species homo_sapiens","cache 1","offline 1","force_overwrite 1","fork 4","refseq 1","json 1"]
+             },
+    "GRCh38" : { "fasta" : "fasta /opt/vep/.vep/homo_sapiens_refseq/109_GRCh38/Homo_sapiens.GRCh38.dna.toplevel.fa.gz",
+               "assembly" : "assembly GRCh38"
+              },
+    "GRCh37" : { "fasta" : "fasta /opt/vep/.vep/homo_sapiens_refseq/109_GRCh37/Homo_sapiens.GRCh37.75.dna.primary_assembly.fa.gz",
+               "assembly" : "assembly GRCh37"
+              }
+ }

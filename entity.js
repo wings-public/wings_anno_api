@@ -83,7 +83,12 @@ var server = app.listen(expressPort, async () => {
     }
   });
 
+var msg = "Annotation Stack "
+if ( process.env.RELEASE_NUM && process.env.RELEASE_MSG) {
+  msg = msg + process.env.RELEASE_MSG + "Release " + process.env.RELEASE_NUM;
+}
+
 app.get('/', (req, res) =>
-    res.send('Node and express server is running on port '+expressPort)
+    res.send(`${msg} is running on port ${expressPort}`)
 );
 

@@ -35,7 +35,10 @@ const dev = {
    caddParserOp : process.env.CADD_DATA + process.env.CADD_OP_LOC || '',
    parsedAnno : process.env.PARSED_ANNO || '',
    vepConf1 : process.env.VEP_HG19_CONF || '',
-   vepConf2 : process.env.VEP_HG38_CONF || ''
+   vepConf2 : process.env.VEP_HG38_CONF || '',
+   caddCores : process.env.CADD_SNAKEMAKE_CORES || 1,
+   annoLoc : process.env.ANNO_LOC || '',
+   tmpPurgeWeeks : process.env.TMP_PURGE || 12
  }
 };
 

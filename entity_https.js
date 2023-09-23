@@ -38,6 +38,7 @@ app.use(express.json());
 // If loginRequired middleware is added to the endpoint, it checks for the jwtid 
 app.use((req, res, next) => {
   //console.log(req.connection);
+  //console.log(req);
 
   if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
      jwt.verify(req.headers.authorization.split(' ')[1], 'RESTFULAPIs', (err, decode) => {
@@ -82,6 +83,11 @@ const options = {
     ca: fs.readFileSync(caPM,'utf8')
 };
 
+var msg = "Annotation Stack "
+if ( process.env.RELEASE_NUM && process.env.RELEASE_MSG) {
+  msg = msg + process.env.RELEASE_MSG + " Release " + process.env.RELEASE_NUM;
+}
+
 //var server = app.listen(expressPort, async () => {
 var server = https.createServer(options,app).listen(httpsPort, async () => {
     var host = server.address().address;
@@ -98,7 +104,7 @@ var server = https.createServer(options,app).listen(httpsPort, async () => {
         console.log("Error is "+e);
         //process.exit(1);
     }
-    console.log(`Annotation Router API version 1.0.1 listening at https://${host}:${port}`);
+    console.log(`${msg} is  listening at https://${host}:${port}`);
  });
  
   // Handle server errors
@@ -130,6 +136,17 @@ var server = https.createServer(options,app).listen(httpsPort, async () => {
 // error-handling middleware should be defined last, after the other app.use and route calls.
 
 app.use(errorLogger);
+
+// catch the uncaught errors that weren't wrapped in a domain or try catch statement
+// do not use this in modules, but only in applications, as otherwise we could have multiple of these bound
+process.on('uncaughtException', function(err) {
+  // handle the error safely
+  console.log("Was there any uncaught exception that was caught here. ");
+  console.log(err)
+})
+
+
+
 app.get('/', (req, res) =>
-    res.send('Annotation Router API version 1.0.1 running on port '+expressPort)
+    res.send(`${msg} is running on port is  running on port ${expressPort}`)
 );

@@ -27,7 +27,7 @@ stages:
         command: build
         dockerfile: 'Dockerfile'
         tags: |
-          v1.0.1
+          v2.1
     - task: Docker@2
       displayName: pipeline push stage
       inputs:
@@ -36,4 +36,4 @@ stages:
         repository: 'wingsorg/wingsannoapi'
         command: push
         tags: |
-          v1.0.1
+          v2.1
